@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="cs" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kalkulátor spalování tuků</title>
+    <meta content="programátor, vývojář webových stránek, kodér" name="keywords">
+    <meta content="Vytvářím webové stránky a aplikace." name="description">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/core.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1>Kalkulátor spalování tuků</h1>
+
+            <p>Zde můžete zjistit, kolik kilometrů musíte ujít, abyste zhubli tolik, kolik jste si dali za cíl</p>
+
+            <h2>Pokyny:</h2>
+
+            <p>zapište, kolik vážíte a kolik kilo tuku chcete zhubnout</p>
+        </div>
+
+        <form class="bg-lavender maw-400 p-30 border-radius-medium">
+            <label for="weight">zadejte svoji váhu v kilech</label>
+            <input type="text" name="weight" id="weight">
+
+            <label for="goal">kolik kilo tuku chcete zhubnout</label>
+            <input type="text" name="goal" id="goal">
+
+            <button class="bg-green button white" id="calculator-submit">SPOČÍTAT</button>
+        </form>
+
+        <div id="result" class="d-none maw-600 text-left center">
+            <p>Kolik je to kalorií: <span id="calories-goal" class="bold"></span></p>
+
+            <p>Kolik kalorií zhruba spálíte, když ujdete 1km pěšky: <span id="calories-per-km" class="bold"></p>
+
+            <p>Potřebujete tedy ujít zhruba: <span id="calories-total" class="bold"></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

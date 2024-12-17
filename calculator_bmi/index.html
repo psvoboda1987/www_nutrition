@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <title>Kalkulátor BMI a živin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="programátor, vývojář webových stránek, kodér" name="keywords">
+    <meta content="Vytvářím webové stránky a aplikace." name="description">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/core.css">
+</head>
+
+<body class="bg-light-gray">
+    <section class="container">
+        <h2 class="text-center">Kalkulátor denního příjmu živin</h2>
+
+        <form class="maw-400 shadow p-30 border-radius-medium" id="bmi-form">
+            <label for="age">Věk</label>
+            <select id="age" class="bmi-form-element" name="age" required>
+                <option value="18-40">18-40</option>
+                <option value="41+">41+</option>
+            </select>
+
+            <label for="height">Výška [cm]</label>
+            <input id="height" class="bmi-form-element" type="number" name="height" required>
+
+            <label for="weight">Váha [kg]</label>
+            <input id="weight" class="bmi-form-element" type="number" name="weight" required>
+
+            <label for="gender">Pohlaví</label>
+            <select id="gender" class="bmi-form-element" name="gender" required>
+                <option value="woman">Žena</option>
+                <option value="man">Muž</option>
+            </select>
+
+            <label for="activity">Stupeň fyzické aktivity</label>
+            <select id="activity" class="bmi-form-element" name="activity" required>
+                <option value="normal">Běžná</option>
+                <option value="medium">Střední</option>
+                <option value="high">Vysoká</option>
+            </select>
+
+            <button id="submit-bmi-form" class="button bg-green white">Vypočítat</button>
+        </form>
+
+        <div id="result"></div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

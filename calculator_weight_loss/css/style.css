@@ -1,0 +1,24 @@
+@import 'colors.css';
+@import 'global.css';
+@import 'form.css';
+
+.underlined {
+	text-decoration: underline;
+}
+
+.btn {
+	background-color: mediumseagreen;
+	padding: 12px 8px;
+	color: #fff;
+	font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover {
+	filter: brightness(110%);
+	text-decoration: none;
+}
+
+.hide {
+    display: none;
+}

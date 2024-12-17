@@ -1,0 +1,18 @@
+/* GRID */
+.container {
+	max-width: 1020px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.cell {
+	margin: 1em auto;
+	padding: 1em;
+	max-width: 450px;
+}
