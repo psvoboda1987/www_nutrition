@@ -4,12 +4,13 @@ window.onload = function () {
   }
 }
 
-function NutritionSlider () {
+function NutritionSlider() {
   const nutritionSlider = {
     next: document.getElementById('next'),
     prev: document.getElementById('prev'),
     slides: document.getElementsByClassName('slide'),
     index: 0,
+    timeout: 1000, // micro seconds
     checkStorage: function () {
       if (localStorage.getItem('slide_index')) {
         this.index = localStorage.getItem('slide_index')
@@ -50,13 +51,17 @@ function NutritionSlider () {
     },
     show: function (element) {
       if (element.classList.contains('hide')) {
-        element.classList.remove('hide')
+        setTimeout(() => {
+          element.classList.remove('hide');
+          element.classList.add('visible');
+        }, this.timeout)
       }
     },
     hide: function (element) {
-      if (!element.classList.contains('hide')) {
-        element.classList.add('hide')
-      }
+      setTimeout(() => {
+        element.classList.remove('visible');
+        element.classList.add('hide');
+      }, this.timeout)
     },
     start: function () {
       nutritionSlider.slideCount = nutritionSlider.slides.length
