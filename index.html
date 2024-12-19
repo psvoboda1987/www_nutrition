@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informace o výživě</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -547,9 +548,13 @@
         let myShow = w3.slideshow('.slide', 0)
 
         document.getElementById('next').onclick = () => {
+            w3.removeClass('.slide', 'w3-animate-left')
+            w3.addClass('.slide', 'w3-animate-right')
             myShow.next()
         }
         document.getElementById('previous').onclick = () => {
+            w3.removeClass('.slide', 'w3-animate-right')
+            w3.addClass('.slide', 'w3-animate-left')
             myShow.previous()
         }
     </script>
