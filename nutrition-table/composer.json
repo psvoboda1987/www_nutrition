@@ -1,0 +1,9 @@
+{
+    "require": {
+        "league/csv": "^9.28",
+        "ucscode/table-generator": "^3.2",
+        "ucscode/easy-paginator": "^2.0",
+        "tracy/tracy": "^2.11",
+        "latte/latte": "^3.1"
+    }
+}

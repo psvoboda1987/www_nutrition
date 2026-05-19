@@ -1,0 +1,428 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "269dec19644b89d5d51b90699be499d1",
+    "packages": [
+        {
+            "name": "latte/latte",
+            "version": "v3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/latte.git",
+                "reference": "14dea9fc32c0d1cf5e9a1bd59556ae8be023c2a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/latte/zipball/14dea9fc32c0d1cf5e9a1bd59556ae8be023c2a6",
+                "reference": "14dea9fc32c0d1cf5e9a1bd59556ae8be023c2a6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-tokenizer": "*",
+                "php": "8.2 - 8.5"
+            },
+            "conflict": {
+                "nette/application": "<3.1.7",
+                "nette/caching": "<3.1.4"
+            },
+            "require-dev": {
+                "nette/php-generator": "^4.0",
+                "nette/phpstan-rules": "^1.0",
+                "nette/tester": "^2.6",
+                "nette/utils": "^4.0",
+                "phpstan/extension-installer": "^1.4@stable",
+                "phpstan/phpstan": "^2.1@stable",
+                "tracy/tracy": "^2.10"
+            },
+            "suggest": {
+                "ext-fileinfo": "to use filter |datastream",
+                "ext-iconv": "to use filters |reverse, |substring",
+                "ext-intl": "to use Latte\\Engine::setLocale()",
+                "ext-mbstring": "to use filters like lower, upper, capitalize, ...",
+                "nette/php-generator": "to use tag {templatePrint}",
+                "nette/utils": "to use filter |webalize"
+            },
+            "bin": [
+                "bin/latte-lint"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Latte\\": "src/Latte"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "☕ Latte: the intuitive and fast template engine for those who want the most secure PHP sites. Introduces context-sensitive escaping.",
+            "homepage": "https://latte.nette.org",
+            "keywords": [
+                "context-sensitive",
+                "engine",
+                "escaping",
+                "html",
+                "nette",
+                "security",
+                "template",
+                "twig"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/latte/issues",
+                "source": "https://github.com/nette/latte/tree/v3.1.4"
+            },
+            "time": "2026-04-23T06:30:25+00:00"
+        },
+        {
+            "name": "league/csv",
+            "version": "9.28.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "6582ace29ae09ba5b07049d40ea13eb19c8b5073"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/6582ace29ae09ba5b07049d40ea13eb19c8b5073",
+                "reference": "6582ace29ae09ba5b07049d40ea13eb19c8b5073",
+                "shasum": ""
+            },
+            "require": {
+                "ext-filter": "*",
+                "php": "^8.1.2"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "ext-xdebug": "*",
+                "friendsofphp/php-cs-fixer": "^3.92.3",
+                "phpbench/phpbench": "^1.4.3",
+                "phpstan/phpstan": "^1.12.32",
+                "phpstan/phpstan-deprecation-rules": "^1.2.1",
+                "phpstan/phpstan-phpunit": "^1.4.2",
+                "phpstan/phpstan-strict-rules": "^1.6.2",
+                "phpunit/phpunit": "^10.5.16 || ^11.5.22 || ^12.5.4",
+                "symfony/var-dumper": "^6.4.8 || ^7.4.0 || ^8.0"
+            },
+            "suggest": {
+                "ext-dom": "Required to use the XMLConverter and the HTMLConverter classes",
+                "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters",
+                "ext-mbstring": "Needed to ease transcoding CSV using mb stream filters",
+                "ext-mysqli": "Requiered to use the package with the MySQLi extension",
+                "ext-pdo": "Required to use the package with the PDO extension",
+                "ext-pgsql": "Requiered to use the package with the PgSQL extension",
+                "ext-sqlite3": "Required to use the package with the SQLite3 extension"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSV data manipulation made easy in PHP",
+            "homepage": "https://csv.thephpleague.com",
+            "keywords": [
+                "convert",
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "transform",
+                "write"
+            ],
+            "support": {
+                "docs": "https://csv.thephpleague.com",
+                "issues": "https://github.com/thephpleague/csv/issues",
+                "rss": "https://github.com/thephpleague/csv/releases.atom",
+                "source": "https://github.com/thephpleague/csv"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nyamsprod",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-12-27T15:18:42+00:00"
+        },
+        {
+            "name": "tracy/tracy",
+            "version": "v2.11.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/tracy.git",
+                "reference": "bbd4fa3a972c460cbeda11d6bbc350d0b5a39717"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/bbd4fa3a972c460cbeda11d6bbc350d0b5a39717",
+                "reference": "bbd4fa3a972c460cbeda11d6bbc350d0b5a39717",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-session": "*",
+                "php": "8.2 - 8.5"
+            },
+            "conflict": {
+                "nette/di": "<3.0"
+            },
+            "require-dev": {
+                "latte/latte": "^2.5 || ^3.0",
+                "nette/di": "^3.0",
+                "nette/http": "^3.0",
+                "nette/mail": "^3.0 || ^4.0",
+                "nette/phpstan-rules": "^1.0",
+                "nette/tester": "^2.6",
+                "nette/utils": "^3.0 || ^4.0",
+                "phpstan/extension-installer": "^1.4@stable",
+                "phpstan/phpstan": "^2.1@stable",
+                "psr/log": "^1.0 || ^2.0 || ^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.11-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Tracy/functions.php"
+                ],
+                "psr-4": {
+                    "Tracy\\": "src"
+                },
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "😎  Tracy: the addictive tool to ease debugging PHP code for cool developers. Friendly design, logging, profiler, advanced features like debugging AJAX calls or CLI support. You will love it.",
+            "homepage": "https://tracy.nette.org",
+            "keywords": [
+                "Xdebug",
+                "debug",
+                "debugger",
+                "nette",
+                "profiler"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/tracy/issues",
+                "source": "https://github.com/nette/tracy/tree/v2.11.4"
+            },
+            "time": "2026-04-22T06:08:41+00:00"
+        },
+        {
+            "name": "ucscode/easy-paginator",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ucscode/easy-paginator.git",
+                "reference": "763da7e31b94236be33091a7c1fd00c5539e3d9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ucscode/easy-paginator/zipball/763da7e31b94236be33091a7c1fd00c5539e3d9b",
+                "reference": "763da7e31b94236be33091a7c1fd00c5539e3d9b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "ucscode/uss-element": "^3.7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ucscode\\Paginator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Uchenna Ajah",
+                    "email": "uche23mail@gmail.com"
+                }
+            ],
+            "description": "A lightweight and flexible PHP pagination library for handling paginated data and generating pagination links.",
+            "homepage": "http://github.com/ucscode/easy-paginator",
+            "keywords": [
+                "pager",
+                "pagination",
+                "paginator"
+            ],
+            "support": {
+                "issues": "https://github.com/ucscode/easy-paginator/issues",
+                "source": "https://github.com/ucscode/easy-paginator/tree/2.0.1"
+            },
+            "time": "2025-02-28T23:42:11+00:00"
+        },
+        {
+            "name": "ucscode/table-generator",
+            "version": "3.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ucscode/table-generator.git",
+                "reference": "0a2cbf057f665337bb5e1ca4a3703303ad56172b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ucscode/table-generator/zipball/0a2cbf057f665337bb5e1ca4a3703303ad56172b",
+                "reference": "0a2cbf057f665337bb5e1ca4a3703303ad56172b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "ucscode/easy-paginator": "^2.0",
+                "ucscode/uss-element": "^3.5"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ucscode\\HtmlComponent\\TableGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Uchenna Ajah",
+                    "email": "uche23mail@gmail.com"
+                }
+            ],
+            "description": "Lightweight PHP library that simplifies the process of creating tables with minimal code",
+            "support": {
+                "issues": "https://github.com/ucscode/table-generator/issues",
+                "source": "https://github.com/ucscode/table-generator/tree/3.2.3"
+            },
+            "time": "2025-03-02T18:00:44+00:00"
+        },
+        {
+            "name": "ucscode/uss-element",
+            "version": "3.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ucscode/uss-element.git",
+                "reference": "1c1e6c2158c5868d9a3af52248f67dda5f30c0bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ucscode/uss-element/zipball/1c1e6c2158c5868d9a3af52248f67dda5f30c0bc",
+                "reference": "1c1e6c2158c5868d9a3af52248f67dda5f30c0bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ucscode\\UssElement\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Uchenna Ajah",
+                    "email": "uche23mail@gmail.com"
+                }
+            ],
+            "description": "UssElement is a PHP library for building and manipulating HTML elements programmatically.",
+            "keywords": [
+                "dom",
+                "element",
+                "html",
+                "library",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/ucscode/uss-element/issues",
+                "source": "https://github.com/ucscode/uss-element/tree/3.7.1"
+            },
+            "time": "2025-02-28T23:35:25+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
