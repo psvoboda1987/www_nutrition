@@ -1134,6 +1134,10 @@ button:hover,
     font-weight: bold;
 }
 
+.normal {
+    font-weight: normal;
+}
+
 /* other */
 
 .image {
