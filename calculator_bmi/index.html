@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta content="programátor, vývojář webových stránek, kodér" name="keywords">
     <meta content="Vytvářím webové stránky a aplikace." name="description">
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/core.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/core.css">
 </head>
 
 <body class="bg-light-gray">
@@ -17,11 +17,15 @@
         <h2 class="text-center">Kalkulátor denního příjmu živin</h2>
 
         <form class="maw-400 shadow p-30 border-radius-medium" id="bmi-form">
-            <label for="age">Věk</label>
-            <select id="age" class="bmi-form-element" name="age" required>
-                <option value="18-40">18-40</option>
-                <option value="41+">41+</option>
-            </select>
+            <label>Věk</label>
+            <div>
+                <label class="d-inline normal mr-10">
+                    <input class="bmi-form-element d-inline" type="radio" name="age" value="18-40" required> 18-40
+                </label>
+                <label class="d-inline normal">
+                    <input class="bmi-form-element d-inline" type="radio" name="age" value="41+" required> 41+
+                </label>
+            </div>
 
             <label for="height">Výška [cm]</label>
             <input id="height" class="bmi-form-element" type="number" name="height" required>
@@ -29,26 +33,35 @@
             <label for="weight">Váha [kg]</label>
             <input id="weight" class="bmi-form-element" type="number" name="weight" required>
 
-            <label for="gender">Pohlaví</label>
-            <select id="gender" class="bmi-form-element" name="gender" required>
-                <option value="woman">Žena</option>
-                <option value="man">Muž</option>
-            </select>
+            <label>Pohlaví</label>
+            <div>
+                <label class="d-inline normal mr-10">
+                    <input class="bmi-form-element d-inline" type="radio" name="gender" value="woman" required> Žena
+                </label>
+                <label class="d-inline normal">
+                    <input class="bmi-form-element d-inline" type="radio" name="gender" value="man" required> Muž
+                </label>
+            </div>
 
-            <label for="activity">Stupeň fyzické aktivity</label>
-            <select id="activity" class="bmi-form-element" name="activity" required>
-                <option value="normal">Běžná</option>
-                <option value="medium">Střední</option>
-                <option value="high">Vysoká</option>
-            </select>
-
-            <button id="submit-bmi-form" class="button bg-green white">Vypočítat</button>
+            <label>Stupeň fyzické aktivity</label>
+            <div>
+                <label class="d-inline normal mr-10">
+                    <input class="bmi-form-element d-inline" type="radio" name="activity" value="normal" required> Běžná
+                </label>
+                <label class="d-inline normal mr-10">
+                    <input class="bmi-form-element d-inline" type="radio" name="activity" value="medium" required>
+                    Střední
+                </label>
+                <label class="d-inline normal">
+                    <input class="bmi-form-element d-inline" type="radio" name="activity" value="high" required> Vysoká
+                </label>
+            </div>
         </form>
 
         <div id="result"></div>
     </section>
 
-    <script src="js/script.js"></script>
+    <script src="../assets/js/calculator_bmi.js"></script>
 </body>
 
 </html>
