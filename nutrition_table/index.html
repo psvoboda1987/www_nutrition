@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri table</title>
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/dataTables.css" />
+</head>
+
+<body>
+    <div id="myTable"></div>
+
+    <script defer src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script defer src="../assets/js/dataTables.js"></script>
+
+    <script defer type="module">
+        let data = await getData();
+        async function getData() {
+            return fetch('data/khp.json')
+                .then(res => res.json())
+        }
+        // ​category
+        console.log(data);
+        let table = new DataTable({
+            data: data,
+            // columns: [
+            //     { title: "product_name" },
+            //     { title: "kcal" },
+            //     { title: "protein" },
+            //     { title: "fat" },
+            //     { title: "carbs" },
+            //     { title: "fiber" },
+            //     { title: "glycemic_index" },
+            //     { title: "cholesterol" }
+            // ],
+            selector: '#myTable'
+        });
+    </script>
+</body>
+
+</html>
