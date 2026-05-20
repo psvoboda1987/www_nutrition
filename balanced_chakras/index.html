@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vyrovnaný postoj</title>
+    <style>
+        body {
+            margin: auto;
+            text-align: center;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 16px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Jak vyrovnat vlastní čakry</h3>
+    <img src="body.png" alt="body" class="map" usemap="#body" />
+    <map name="body" class="">
+        <area shape="circle" coords="50,320,20" class="area" title="1A" />
+        <area shape="circle" coords="130,320,20" class="area" title="1B" />
+        <area shape="circle" coords="50,270,20" class="area" title="2A" />
+        <area shape="circle" coords="130,270,20" class="area" title="2B" />
+        <area shape="circle" coords="50,220,20" class="area" title="3A" />
+        <area shape="circle" coords="130,220,20" class="area" title="3B" />
+        <area shape="circle" coords="50,170,20" class="area" title="4A" />
+        <area shape="circle" coords="130,170,20" class="area" title="4B" />
+        <area shape="circle" coords="50,120,20" class="area" title="5A" />
+        <area shape="circle" coords="130,120,20" class="area" title="5B" />
+        <area shape="circle" coords="50,70,20" class="area" title="6A" />
+        <area shape="circle" coords="130,70,20" class="area" title="6B" />
+        <area shape="circle" coords="50,20,20" class="area" title="7A" />
+        <area shape="circle" coords="130,20,20" class="area" title="7B" />
+    </map>
+
+    <div id="text"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="jquery.maphilight.min.js"></script>
+    <script>
+        $.fn.maphilight.defaults = {
+            fill: true,
+            fillColor: '555555',
+            fillOpacity: 0.2,
+            stroke: true,
+            strokeColor: 'ff7777',
+            strokeOpacity: 1,
+            strokeWidth: 1,
+            fade: true,
+            alwaysOn: true,
+            neverOn: false,
+            groupBy: false,
+            wrapClass: true,
+            shadow: false,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 6,
+            shadowColor: '000000',
+            shadowOpacity: 0.8,
+            shadowPosition: 'outside',
+            shadowFrom: false
+        }
+        $('.map').maphilight();
+
+        let data = {
+            "1A": "prožívat lásku a sex společně, ne odděleně",
+            "1B": "žít tady a teď, bez stížností a sebelítosti, hledět si sebe",
+            "2A": "přijmout sám sebe, vyladit poměr mezi aktivitou a pocity",
+            "2B": "otevřít se čisté spolupráci, brát lidi bez kritiky",
+            "3A": "správná míra sebedůvěry, neřešit názory druhých pokud dělám vše správně",
+            "3B": "prosadit se ale nemanipulovat druhé",
+            "4A": "řešit duchovní význam událostí",
+            "4B": "spolupracovat s lidmi férově",
+            "5A": "být upřímný sám k sobě, přijmout své chyby",
+            "5B": "slušně, klidně a pravdivě komunikovat s druhými",
+            "6A": "vnímat duchovní náznaky, najít svojí chybu a napravit ji",
+            "6B": "najít uplatnění duchovní inspirace",
+            "7A": "vyladit životní styl a stravu",
+            "7B": "pokora, skromnost"
+        }
+        let textEl = document.getElementById('text')
+        let areas = document.querySelectorAll('.area')
+        for (const area of areas) {
+            ['mouseover', 'click'].forEach(event => {
+                area.addEventListener(event, (e) => {
+                    textEl.innerHTML = `<h3>${area.title}</h3>
+                    <p>${data[area.title]}</p>`
+                })
+            })
+        }
+    </script>
+</body>
+
+
+</html>
