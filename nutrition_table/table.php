@@ -12,28 +12,39 @@ $paginator = new Paginator(
     itemsPerPage: 20,
     currentPage: $_GET['page'] ?? 1
 );
-$data = getDataFromSqlite(__DIR__ . '/data/khp.db');
-$adapter = new AssocArrayAdapter($data, $paginator);
-$bootstrapMiddleware = new BootstrapDesignMiddleware();
-$tableGenerator = new TableGenerator($adapter, $bootstrapMiddleware);
-$paginatorBuilder = $paginator->getBuilder();
+$db = new SQLite3(__DIR__ . '/data/khp.db');
+$data = getDataFromSqlite($db);
 
-$params = [
-    'table' => new Html($tableGenerator->render()),
-    'paginator' => new Html($paginatorBuilder->render()),
-];
+$adapter = new AssocArrayAdapter($data, $paginator);
+$tableGenerator = new TableGenerator($adapter, new BootstrapDesignMiddleware());
 
 $latte = new Latte\Engine();
 $latte->setCacheDirectory(__DIR__ . '/temp');
-$latte->render(__DIR__ . '/assets/template/table.latte', $params);
+$latte->render(__DIR__ . '/assets/template/table.latte', [
+    'table' => new Html($tableGenerator->render()),
+    'paginator' => new Html($paginator->getBuilder()->render()),
+    'categories' => getCategories($db),
+]);
 
-function getDataFromSqlite(string $path)
+function getDataFromSqlite(SQLite3 $db)
 {
     $data = [];
-    $db = new SQLite3($path);
-    $sql = "SELECT * FROM nutrition";
+    $sql = "SELECT
+        product_name,
+        kcal,
+        protein,
+        carbs,
+        fat,
+        fiber,
+        cholesterol,
+        glycemic_index
+        FROM nutrition";
+    if (isset($_GET['category']) && !empty($_GET['category'])) {
+        $category = $db->escapeString($_GET['category']);
+        $sql .= " WHERE category = '$category'";
+    }
     if (isset($_GET['orderBy'])) {
-        $sort = $_GET['sort'] ?? 'ASC';
+        $sort = $db->escapeString($_GET['sort']) ?? 'ASC';
         $orderBy = strtolower(str_replace(' ', '_', $_GET['orderBy']));
         $sql .= " ORDER BY $orderBy $sort";
     }
@@ -42,4 +53,14 @@ function getDataFromSqlite(string $path)
         $data[] = $row;
     }
     return $data;
+}
+
+function getCategories(SQLite3 $db)
+{
+    $categories = [];
+    $query = $db->query("SELECT DISTINCT category FROM nutrition");
+    while ($row = $query->fetchArray(SQLITE3_ASSOC)) {
+        $categories[] = $row['category'];
+    }
+    return $categories;
 }

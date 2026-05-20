@@ -8,7 +8,17 @@ if (sort === null || sort === 'DESC') {
 
 let headerElements = document.querySelectorAll('thead.sortable th');
 for (const element of headerElements) {
-    element.addEventListener('click', ()=> {
-        window.location.search = `?orderBy=${element.innerText}&sort=${sort}`;
+    element.addEventListener('click', () => {
+        const url = new URL(window.location.href);
+        url.searchParams.set('orderBy', element.innerText);
+        url.searchParams.set('sort', sort);
+        window.location.href = url.href;
     });
 }
+
+let category = document.getElementById('category');
+category.addEventListener('change', () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('category', category.value);
+    window.location.href = url.href;
+});
