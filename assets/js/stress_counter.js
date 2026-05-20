@@ -4,7 +4,7 @@ window.onload = () => {
   }
 }
 
-function StressApp () {
+function StressApp() {
   const stressApp = {
     select: document.getElementById('select'),
     addBtn: document.getElementById('add'),
@@ -14,164 +14,91 @@ function StressApp () {
     resultElement: document.getElementById('result'),
     deleteButtons: [],
     latestSelected: null,
-
     start: function () {
       this.showOptions()
       this.initApp()
     },
-
     showOptions: function () {
       let options = ''
-
       for (const point of this.points) {
-        options += `
-                <option data-key="${point[0]}" value="${point[1]}">
-                    ${point[0]}
-                </option>
-            `
+        options += `<option data-key="${point[0]}" value="${point[1]}">${point[0]}</option>`
       }
-
       this.select.innerHTML += options
     },
-
     initApp: function () {
       this.addBtn.addEventListener('click', (event) => {
         event.preventDefault()
-
         this.addListItem()
-
         this.initDeleteButtons()
+        this.getCount()
       })
-
       this.countBtn.addEventListener('click', (event) => {
         event.preventDefault()
-
         this.getCount()
       })
     },
-
     initDeleteButtons: function () {
       this.deleteButtons = document.getElementsByClassName('delete-point')
-
       for (const button of this.deleteButtons) {
         button.addEventListener('click', (e) => {
           const id = e.target.parentElement.dataset.value
           const option = document.querySelector(`option[value="${id}"]`)
-
           option.classList.remove('selected')
-
           this.list.removeChild(e.target.parentElement)
-
           this.countPoints()
         })
       }
     },
-
     addListItem: function () {
       if (this.select.value == '') return
-
       this.list.classList.remove('hide')
-
-      this.list.innerHTML += `
-            <li data-value="${this.select.value}" class="list-item">
-                ${this.select.selectedOptions[0].innerHTML}
-                <span class="delete-point">&times;</span>
-            </li>
-        `
-
+      this.list.innerHTML += `<li data-value="${this.select.value}" class="list-item">
+        ${this.select.selectedOptions[0].innerHTML}
+        <span class="delete-point">&times;</span>
+        </li>`
       this.latestSelected = this.select.selectedOptions[0]
-
       this.select.selectedOptions[0].classList.add('selected')
       this.select.value = ''
-
       this.countPoints()
     },
-
     getCount: function () {
       const total = this.countPoints()
-
       this.getResult(total)
     },
-
     countPoints: function () {
       const selectedItems = document.getElementsByClassName('list-item')
-
       let total = 0
-
       for (const item of selectedItems) {
         total += parseInt(item.dataset.value)
       }
-
       this.updateCounter(total)
-
-      if (this.resultElement.innerHTML != '') this.getResult(total)
-
+      if (this.resultElement.innerHTML !== '') this.getResult(total)
       return total
     },
-
     updateCounter: function (total) {
       this.counter.innerHTML = `<p>${total} bodů</p>`
     },
-
     getResult: function (total) {
       let evaluation = ''
-
       switch (true) {
         case (total < 150):
-
-          evaluation = `
-                    <p class="green">
-                        Gratulujeme, vaše stresová zátěž je normální.
-                    </p>
-                `
-
+          evaluation = `<p class="green">Gratulujeme, vaše stresová zátěž je normální.</p>`
           break
-
         case (total < 200):
-
-          evaluation = `
-                    <p class="blue">
-                        Každý třetí s touto hodnotou má problémy se zdravím.
-                        Můžete tomu předejít, pokud si osvojíte
-                        <a href="http://aplikace.svobodaweb.cz/app/relax_breathe" target="_blank"class="bold">uvolňovací cviky</a>
-                    </p>
-                `
-
+          evaluation = `<p class="blue">Každý třetí s touto hodnotou má problémy se zdravím.Můžete tomu předejít, pokud si osvojíte uvolňovací cviky</p>`
           break
-
         case (total < 300):
-
-          evaluation = `
-                    <p class="orange">
-                        U vás se riziko, že v nejbližší době onemocníte pohybuje
-                        kolem 50%.
-                        Měli byste stresu uniknout pomocí
-                        <a href="http://aplikace.svobodaweb.cz/app/relax_breathe" target="_blank"class="bold">uvolňovacího cvičení</a>
-                    </p>`
-
+          evaluation = `<p class="orange">U vás se riziko, že v nejbližší době onemocníte pohybuje
+            kolem 50%. Měli byste stresu uniknout pomocí uvolňovacího cvičení</p>`
           break
-
         case (total >= 300):
-
-          evaluation = `
-                    <p class="red">
-                        Pozor! Asi 80% těch, jejichž hladina stresu překračuje hodnotu
-                        300 rychle onemocní.
-                        Co nejdříve začněte s
-                        <a href="http://aplikace.svobodaweb.cz/app/relax_breathe" target="_blank"class="bold">uvolňovacím cvičením</a>
-                        a pracujte na omezení stresu ve vašem každodenním životě.
-                    </p>`
-
+          evaluation = `<p class="red">Pozor! Asi 80% těch, jejichž hladina stresu překračuje hodnotu 300 rychle onemocní. Co nejdříve začněte s uvolňovacím cvičením a pracujte na omezení stresu ve vašem každodenním životě.</p>`
           break
-
         default:
-
           alert('Chyba')
       }
-
       this.resultElement.innerHTML = evaluation
     },
-
     getPoints: function () {
       return [
         ['smrt partnera', 100],

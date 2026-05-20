@@ -5,12 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stress level indicator</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="../../favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <style>
+        .delete-point {
+            padding: 10px;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        a {
+            margin-bottom: 0.5em;
+            text-decoration: none;
+            color: dodgerblue;
+        }
+
+        a:hover {
+            border-bottom: 1px solid dodgerblue;
+            filter: brightness(110%);
+        }
+
+        .item {
+            padding: 2em;
+            background-color: #eee;
+            border-radius: 10px;
+        }
+
+        option.selected {
+            /* background-color: #888; */
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-
     <div class="container text-center">
         <h1>Stresový indikátor</h1>
         <hr>
@@ -20,8 +49,9 @@
             <option value=""></option>
         </select>
 
-        <div><button id="add" class="bg-purple white">Přidat</button></div>
-        <div><button id="count" class="bg-orange">Vyhodnotit</button></div>
+        <div>
+            <button id="add" class="bg-purple white">Přidat</button>
+        </div>
 
         <ol id="list" class="p-20 border-radius-medium bg-light-gray d-inline-block hide"></ol>
 
@@ -31,8 +61,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
-
+    <script src="../assets/js/stress_counter.js"></script>
 </body>
 
 </html>
