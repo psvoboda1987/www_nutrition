@@ -32,7 +32,7 @@ function showData(selectBox, target) {
   }
 
   target.innerHTML = `
-    <h3 class="bold tomato">Problém:</h3>
+    <h3 class="bold red">Problém:</h3>
     <p>${cause.attributes['data-problem'].textContent}</p>
     <h3 class="bold green">Řešení:</h3>
     <p>${cause.attributes['data-solution'].textContent}</p>

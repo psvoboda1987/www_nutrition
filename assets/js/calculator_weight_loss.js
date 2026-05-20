@@ -2,11 +2,11 @@ window.onload = function () {
   const weightElement = document.getElementById('weight')
   const goalElement = document.getElementById('goal')
 
-  weightElement.addEventListener('input', function () {
+  weightElement.addEventListener('change', function () {
     renderResult(weightElement.value, goalElement.value)
   })
 
-  goalElement.addEventListener('input', function () {
+  goalElement.addEventListener('change', function () {
     renderResult(weightElement.value, goalElement.value)
   })
 }
@@ -26,6 +26,5 @@ function renderResult(weight, goal) {
   document.getElementById('result').innerHTML = `
     <p>Kolik je to kalorií: <span class="bold">${caloriesGoal} kCal</span></p>
     <p>Kolik kalorií zhruba spálíte, když ujdete 1km pěšky: <span class="bold">${caloriesPerKm} kCal</span></p>
-    <p>Potřebujete tedy ujít zhruba: <span class="bold">${walkingDistance} km</span></p>
-  `
+    <p>Potřebujete tedy ujít zhruba: <span class="bold">${walkingDistance} km</span></p>`
 }

@@ -52,10 +52,11 @@ function getBmiData(formData) {
 
   let message = ''
   let color = ''
+  let bmiDifference = (bmiLimit) => (bmiLimit * (height / 100) ** 2 - weight).toFixed(2)
 
   switch (true) {
     case (bmi < 18.5):
-      message = 'Vypadá to, že máte podváhu. Měli byste zvýšit příjem bílkovin a zdravých kalorií.'
+      message = `Vypadá to, že máte podváhu. Měli byste zvýšit příjem bílkovin a zdravých kalorií. Ke zdravé váze vám chybí nabrat ${bmiDifference(18.5)} kg.`
       color = 'red'
       break
 
@@ -65,12 +66,12 @@ function getBmiData(formData) {
       break
 
     case (bmi < 30):
-      message = 'Vypadá to, že máte nadváhu. Měli byste snížit příjem nezdravých kalorií, zvýšit množství bílkovin a více se hýbat.'
+      message = `Vypadá to, že máte nadváhu. Měli byste snížit příjem nezdravých kalorií, zvýšit množství bílkovin a více se hýbat. Ke zdravé váze vám chybí spálit ${bmiDifference(25) * -1} kg.`
       color = 'orange'
       break
 
     case (bmi >= 30):
-      message = 'Vypadá to, že jste obézní. Měli byste vyhledat výživového specialistu.'
+      message = `Vypadá to, že jste obézní. Měli byste vyhledat výživového specialistu. Ke zdravé váze vám chybí spálit ${bmiDifference(25) * -1} kg.`
       color = 'red'
       break
   }
