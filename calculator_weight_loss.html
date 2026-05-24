@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="cs" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kalkulátor spalování tuků</title>
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/core.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h2>Kalkulátor spalování tuků</h2>
+            <p>Zde můžete zjistit, kolik kilometrů musíte ujít, abyste zhubli tolik, kolik jste si dali za cíl</p>
+            <h3>Pokyny:</h3>
+            <p>zapište, kolik vážíte a kolik kilo tuku chcete zhubnout</p>
+        </div>
+
+        <form class="bg-lavender maw-400 p-30 border-radius-medium">
+            <label for="weight">tvoje váha (kg):</label>
+            <input type="number" name="weight" id="weight">
+
+            <label for="goal">kolik kg tuku chceš zhubnout?</label>
+            <input type="number" name="goal" id="goal" value="1">
+        </form>
+
+        <div id="result" class="maw-600 text-left center"></div>
+    </div>
+
+    <script src="../assets/js/calculator_weight_loss.js"></script>
+</body>
+
+</html>
