@@ -1,4 +1,4 @@
-const json = await fetch('../assets/data/khp.json')
+const json = await fetch('assets/data/khp.json')
 let data = await json.json()
 renderCategories(data);
 

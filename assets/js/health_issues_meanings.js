@@ -1,5 +1,5 @@
 
-let options = await fetch('./../assets/data/health_issues_meanings.json')
+let options = await fetch('assets/data/health_issues_meanings.json')
   .then(res => res.json())
   .then(data => data.sort(sortOn('name')));
 const selectBox = document.getElementById('cause');
@@ -19,11 +19,11 @@ for (const option of options) {
 selectBox.addEventListener('change', () => {
   showData(selectBox, target);
 });
+
 document.getElementById('diagnostic').onsubmit = (e) => {
   e.preventDefault();
   showData(selectBox, target);
 };
-
 
 function showData(selectBox, target) {
   let cause = selectBox.selectedOptions[0];
